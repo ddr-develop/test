@@ -3,17 +3,17 @@
     "name": "Juego Abejita",
     "icons": [
         {
-            "src": "test/icons/bac-favicon.ico",
+            "src": "/public/icons/favicon.png",
             "sizes": "64x64 32x32 24x24 16x16",
             "type": "image/x-icon"
         },
         {
-            "src": "test/img/iconoapp.png",
+            "src": "/img/iconoapp.png",
             "type": "image/png",
             "sizes": "192x192"
         },
         {
-            "src": "test/img/iconoapp.png",
+            "src": "/img/iconoapp.png",
             "type": "image/png",
             "sizes": "512x512"
         }
