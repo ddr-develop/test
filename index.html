@@ -269,6 +269,22 @@
             z-index: 1000;
         }
 
+        .button-continue {
+            position: absolute;
+            top: 80%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: rgba(255, 182, 193, 0.9);
+            padding: 15px 30px;
+            border-radius: 15px;
+            font-size: 19px;
+            color: #FF1493;
+            text-align: center;
+            box-shadow: 0 0 20px rgba(255, 20, 147, 0.5);
+            animation: birthday-appear 0.5s ease-out;
+            z-index: 1000;
+        }
+
         @keyframes birthday-appear {
             from {
                 opacity: 0;
@@ -361,6 +377,10 @@
         <div class="birthday-message" style="display: none;">
         </div>
 
+
+
+
+
         <div id="gameOver">
             <h2>¡Juego Terminado!</h2>
             <p>Puntaje Final: <span id="finalScore">0</span></p>
@@ -375,7 +395,7 @@
             <div style="text-align: center;">
                 <h1 style="font-family: 'Arial', sans-serif; color: #FF69B4; font-size: 48px;">Bienvenido al Juego <br>
                     de <br>
-                    WendyBee</h1>
+                    🐝 WendyBee 🐝</h1>
                 <h5 style="color: #FF69B4;"><strong>Usa las flechas para mover • Espacio o 💖 para disparar corazones •
                         ¡Salva
                         las
@@ -384,12 +404,12 @@
                     style="margin: 20px; padding: 10px 20px; font-size: 24px; background-color: #FF69B4; color: #FFF; border: none; border-radius: 10px; cursor: pointer;">Iniciar
                     Juego</button>
                 <button id="credits"
-                    style="margin: 20px; padding: 10px 20px; font-size: 24px; background-color: #FF69B4; color: #FFF; border: none; border-radius: 10px; cursor: pointer;">Créditos</button>
+                    style="margin: 20px; padding: 15px 20px; font-size: 24px; background-color: #FF69B4; color: #FFF; border: none; border-radius: 10px; cursor: pointer;">Créditos</button>
             </div>
         </div>
 
         <div id="creditsMenu"
-            style="display: none; justify-content: center; align-items: center; height: 100vh; background-color: #FFC0CB;">
+            style="display: none; justify-content: center; align-items: center; height: 80vh; background-color: #FFC0CB;">
             <div style="text-align: center;">
                 <h1 style="font-family: 'Arial', sans-serif; color: #FF69B4; font-size: 36px;">Créditos</h1>
                 <p style="font-size: 20px; color: #FF69B4;">Juego desarrollado por Crodas</p>

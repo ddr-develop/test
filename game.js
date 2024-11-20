@@ -21,6 +21,7 @@ class Game {
         this.keysPressed = new Set();
         this.lastShot = 0;
         this.birthdayShown = false;
+        this.continue = 1000;
 
 
         this.backgroundMusic = new Audio('sounds/fondo.mp3'); // Ruta al sonido de fondo
@@ -177,11 +178,16 @@ class Game {
         document.getElementById('score').textContent = `Score: ${this.score}`;
 
         // Detener el juego cuando se alcance o supere los 1000 puntos
-        if (this.score >= 1000 && !this.birthdayShown) {
+        if (this.score >= this.continue && !this.birthdayShown) {
             this.showBirthdayMessage(); // Mostrar el mensaje
             this.birthdayShown = true;
             this.gameOver = true; // Detener el juego
             this.cleanGameElements(); // Limpiar elementos del juego
+
+
+            const gameContainer = document.getElementById('gameContainer');
+            gameContainer.style.background = '#FF69B4';
+
 
             this.backgroundMusic.pause(); // Detener la música de fondo
             this.birthdaySound.play(); // Reproducir sonido de cumpleaños
@@ -194,6 +200,32 @@ class Game {
             for (let i = 0; i < 135; i++) { // 135 explosiones
                 setTimeout(() => this.generateFireworks(centerX, centerY), i * 500);
             }
+
+            // Crear un botón para seguir jugando
+            const continueButton = document.createElement('button');
+            continueButton.className = 'button-continue';
+            continueButton.innerText = 'Seguir Jugando';
+            const teclas = document.getElementById('mobileControls');
+            // Funcionalidad para el botón
+
+            document.getElementById('gameContainer').appendChild(continueButton);
+
+            continueButton.addEventListener('click', () => {
+                this.continue = 10000
+                // Aquí puedes agregar la lógica para continuar el juego
+                this.birthdayShown = false;
+                continueButton.remove(); // Eliminar el botón
+
+                this.birthdaySound.pause();
+                this.backgroundMusic.play();
+                alert("Ups! aun en desarrollo, por favor refresca la página para seguir jugando");
+                this.gameLoop()
+            });
+
+            // Añadir el botón al contenedor del juego
+
+
+
         }
 
 
@@ -203,11 +235,31 @@ class Game {
         // Eliminar todos los corazones y flores
         document.querySelectorAll('.heart, .flower').forEach(el => el.remove());
     }
+
+
+
+
     showBirthdayMessage() {
         const birthdayDiv = document.createElement('div');
+
+
+        // Keep bee within bounds
+        // Calcular el centro de la pantalla
+        this.bee.x = (GAME_WIDTH - this.bee.width) / 2;
+        this.bee.y = (GAME_HEIGHT - this.bee.height) / 4;
+
+        // Asegúrate de que la abeja no se salga de los límites
+        this.bee.x = Math.max(0, Math.min(GAME_WIDTH - this.bee.width, this.bee.x));
+        this.bee.y = Math.max(0, Math.min(GAME_HEIGHT - this.bee.height, this.bee.y));
+
+        // Aplicar la transformación de estilo para mover la abeja
+        this.bee.element.style.transform = `translate(${this.bee.x}px, ${this.bee.y}px)`;
+
+
         birthdayDiv.className = 'birthday-message';
         birthdayDiv.innerHTML = '¡Feliz Cumpleaños Wendy! 🎂✨';
         document.getElementById('gameContainer').appendChild(birthdayDiv);
+
 
 
         setTimeout(() => {
