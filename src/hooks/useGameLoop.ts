@@ -17,8 +17,8 @@ interface GameActions {
   setEnemies: (enemies: Enemy[]) => void;
 }
 
-const GAME_WIDTH = 800;
-const GAME_HEIGHT = 600;
+const GAME_WIDTH = 750;
+const GAME_HEIGHT = 500;
 const BEE_SPEED = 5;
 const HEART_SPEED = 6;
 const ENEMY_SPAWN_RATE = 1.5;

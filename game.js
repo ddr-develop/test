@@ -7,8 +7,8 @@ const ENEMY_SPAWN_RATE = 0.02;
 class Game {
     constructor() {
         this.bee = {
-            x: 300,
-            y: 400,
+            x: GAME_WIDTH / 4,
+            y: GAME_WIDTH / 2,
             width: 48,
             height: 48,
             element: document.getElementById('bee')
@@ -112,7 +112,7 @@ class Game {
             center.className = 'flower-center';
             flower.appendChild(center);
 
-            const x = Math.random() * (GAME_WIDTH - 40);
+            const x = Math.random() * (GAME_WIDTH - 60);
             flower.style.transform = `translate(${x}px, ${-40}px)`;
             document.getElementById('gameContainer').appendChild(flower);
 
@@ -193,8 +193,8 @@ class Game {
             this.birthdaySound.play(); // Reproducir sonido de cumpleaños
 
             // Coordenadas centrales para los fuegos artificiales
-            const centerX = GAME_WIDTH / 2;
-            const centerY = GAME_HEIGHT / 2;
+            const centerX = GAME_WIDTH / 4;
+            const centerY = GAME_HEIGHT / 4;
 
             // Generar fuegos artificiales repetidamente
             for (let i = 0; i < 135; i++) { // 135 explosiones
@@ -245,8 +245,8 @@ class Game {
 
         // Keep bee within bounds
         // Calcular el centro de la pantalla
-        this.bee.x = (GAME_WIDTH - this.bee.width) / 2;
-        this.bee.y = (GAME_HEIGHT - this.bee.height) / 4;
+        this.bee.x = (GAME_WIDTH - this.bee.width) / 4;
+        this.bee.y = (GAME_HEIGHT - this.bee.height) / 8;
 
         // Asegúrate de que la abeja no se salga de los límites
         this.bee.x = Math.max(0, Math.min(GAME_WIDTH - this.bee.width, this.bee.x));
